@@ -1,0 +1,12 @@
+* {
+	font-family: Arial;
+}
+
+.table {
+	display: grid;
+	grid-template-columns: repeat(4,1fr)
+}
+
+.grey {
+	background-color: lightgrey;
+}
