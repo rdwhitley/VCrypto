@@ -1,5 +1,18 @@
-.test {
+.row {
 	display: grid;
 	grid-column: 1 / span 4;
-	grid-template-columns: repeat(4, 1fr)
+	grid-template-columns: repeat(4, 1fr);
+	font-size: 24px;
+	padding-top: 20px; 
+	border-bottom: 2px groove;
+}
+
+img {
+	height: 2.5rem;
+	width: 2.5rem;
+}
+
+a {
+	color: black;
+	text-decoration: none;
 }
