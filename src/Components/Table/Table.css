@@ -1,5 +1,5 @@
 * {
-	font-family: Arial;
+	font-family: Arial;	
 }
 
 .table {
@@ -9,4 +9,8 @@
 
 .grey {
 	background-color: lightgrey;
+}
+
+.red {
+	color: red;
 }
