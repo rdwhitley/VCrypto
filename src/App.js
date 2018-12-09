@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-        <Header />
+        {/*<Header />*/}
         <Table 
         cryptocurrency={this.state.cryptocurrency} 
         currency={this.state.currency}
