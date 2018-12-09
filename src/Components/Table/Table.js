@@ -5,11 +5,16 @@ import {Route} from 'react-router-dom'
 import CurrencyData from '../CurrencyData/CurrencyData'
 import Header from '../Header/Header'
 
-// <Route path='/yood' exact render={() => <h1>Yurd</h1>} />
+let changeCurrency;
 
 const Table = (props) => {
+	// console.log(props.changeCurrency)
+	changeCurrency = props.changeCurrency
+	console.log(changeCurrency)
 	let pricejawn = `price_${props.currency}`
 	let marketjawn = `market_cap_${props.currency}`
+	let volume = `24h_volume_${props.currency}`
+
 	return ( 
 		<div>
 		<Route path='/' exact render={() => {
@@ -23,8 +28,12 @@ const Table = (props) => {
 					<p className='grey'>24H CHANGE</p>
 					{
 						props.cryptocurrency.map((item,index) => 
-							<CryptoRow 
+							<CryptoRow
+							volume={props.cryptocurrency[index][volume]}
+							symbol={props.cryptocurrency[index].symbol}
+							total={props.cryptocurrency[index].total_supply} 
 							logos={props.logos}
+							changeCurrency={props.changeCurrency}
 							rank={props.cryptocurrency[index].rank	} 
 							name={props.cryptocurrency[index].id}
 							price={props.cryptocurrency[index][pricejawn]}
@@ -37,7 +46,18 @@ const Table = (props) => {
 				</div>
 		)}} />
 
-		<Route path='/currency/:id/:image_index' exact component={(props) => <CurrencyData id={props.match.params.id} image_index={props.match.params.image_index} />} />
+		<Route path='/currency/:id/' exact component={(props) => {
+			return <CurrencyData 
+			id={props.match.params.id}
+			total={props.location.state.total}
+			volume={props.location.state.volume}
+			symbol={props.location.state.symbol}
+			market={props.location.state.marketCap}
+			logo={props.location.state.logo}
+			price={props.location.state.price}
+			rank={props.location.state.rank}
+			/>
+		}} />
 
 
 		</div>	

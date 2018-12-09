@@ -1,7 +1,6 @@
 import React from 'react';
 import './CryptoRow.css'
 import '../Table/Table.css'
-import bitcoin from '../../Assets/Images/bitcoin.png'
 import {Link} from 'react-router-dom'
 
 //Variable to hold the image path Index defaulted to 0 
@@ -38,9 +37,22 @@ const findCurrencyLogo = (name,logos) => {
 }
 const CryptoRow = (props) => {
 	let image_path = findCurrencyLogo(props.name,props.logos)
-
+	const price = parseFloat(props.price).toFixed(3)
 	return (
-		<Link to={`/currency/${props.name}/${imagePathIndex}`} className='row'>
+		<Link to={{ 
+			pathname: `/currency/${props.name}`, 
+			state: {
+				marketCap: props.market, 
+				logo: props.logos[imagePathIndex], 
+				volume: props.volume, 
+				symbol: props.symbol, 
+				total: props.total, 
+				rank: props.rank, 
+				price: price
+				}
+			}} 
+			className='row'>
+
 			<div className='row'>
 				<div className='row__item--one'>
 				{props.rank}
@@ -48,7 +60,7 @@ const CryptoRow = (props) => {
 				{props.name}
 				</div>
 				<div className='row__item--two'>
-				${parseFloat(props.price).toFixed(3)}
+				${price}
 				</div>
 				<div className='row__item--three'> 
 				${parseInt(props.market)}

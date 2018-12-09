@@ -1,0 +1,60 @@
+.currency__info--header {
+	display: flex;
+	height: 15vh;
+}
+
+.currency__info--body {
+	background: teal;
+	height: 100vh;
+}
+
+#currency_dropdown {
+	color: red;
+	margin-left: auto;
+	margin-right: 5em;
+}
+
+a {
+	margin-right: 1em;
+}
+
+p {
+	margin-right: 1em;
+}
+
+.three-column-row {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr)
+}
+
+.grid-item--1 {
+	color: white;
+	border: 2px solid white;
+	margin-top: 10em;
+}
+
+.grid-item--2 {
+	color: white;
+	margin-top: 4em;
+}
+
+.grid-item--3 {
+	color: white;
+	margin-top: 4em;
+}
+
+.market-cap{
+	margin-top: 5em;
+}
+
+.circulating-supply {
+	margin-top: 3em;
+}
+
+.volume {
+	margin-top: 5em;
+}
+
+.total_supply {
+	margin-top: 3em;
+}

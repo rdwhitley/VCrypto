@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route} from 'react-router-dom'
 import './App.css';
+import  { Provider } from 'react-redux'
+import store from './store.js'
 
 import Header from './Components/Header/Header'
 import Table from './Components/Table/Table'
 import CryptoRow from './Components/CryptoRow/CryptoRow'
 
-import bitcoin from './Assets/Images/bitcoin.png'
+import bitcoin from './Assets/Images/Bitcoin.png'
 import bitcoin_sv from './Assets/Images/bitcoin_sv.png'
 import eos from './Assets/Images/eos.jpg'
 import ethereum from './Assets/Images/ethereum.png'
@@ -16,6 +18,7 @@ import tether from './Assets/Images/tether.png'
 import bitcoin_cash from './Assets/Images/bitcoin_cash.jpeg'
 import tron from './Assets/Images/tron.jpg'
 import litecoin from './Assets/Images/litecoin.jpg'
+
 
 
 class App extends Component {
@@ -43,18 +46,26 @@ class App extends Component {
       //2. Send data to state
       .then(data => this.setState({cryptocurrency: data}))
   }
+
+  changeCurrency () {
+      console.log('currency changing')
+  }
+
   render() {
     return (
-      <BrowserRouter>
-      <div className="App">
-        {/*<Header />*/}
-        <Table 
-        cryptocurrency={this.state.cryptocurrency} 
-        currency={this.state.currency}
-        logos={this.state.logos}
-        />
-      </div>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="App">
+            {/*<Header />*/}
+            <Table 
+            cryptocurrency={this.state.cryptocurrency} 
+            currency={this.state.currency}
+            logos={this.state.logos}
+            changeCurrency={this.changeCurrency}
+            />
+          </div>
+        </BrowserRouter>
+      </Provider>
 
 
 
