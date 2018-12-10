@@ -1,19 +1,22 @@
 import React from 'react'
 import './CurrencyData.css'
 import {Link} from 'react-router-dom'
+import DisplayBox from '../CurrencyDisplayBox/DisplayBox'
 
 const currencyData = (props) => {
 	return (
 		<div class='light'>
 			<div class='currency__info--header'>
 				<Link to='/'><i className='fa fa-arrow-circle-left fa-2x'></i></Link>
-				<img src ={props.logo} />
+				<img src ={props.logo} alt='logo'/>
 				<div class='mg-left-right'>
 					<h2 class='light-black'>{props.id}</h2>
 					<h2 class=''>{props.symbol}</h2>
 				</div>
 				<h2 class='black'>${Number(props.price).format()}</h2> 
 			</div>
+
+			<DisplayBox currency={props.currency}/>
 
 			<div class='currency__info--body'>
 				<div class='three-column-row'>

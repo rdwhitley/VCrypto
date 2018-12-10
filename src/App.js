@@ -18,10 +18,6 @@ import bitcoin_cash from './Assets/Images/bitcoin_cash.jpeg'
 import tron from './Assets/Images/tron.jpg'
 import litecoin from './Assets/Images/litecoin.jpg'
 
-Number.prototype.format = function(){
-   return this.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-};
-
 class App extends Component {
 
   state = {
@@ -68,7 +64,7 @@ class App extends Component {
             <Route path='/currency/:id/' exact component={(props) => {
               //Redux Would be a better solution here but I'm having trouble with Redux
               return(
-                <CurrencyData 
+                <CurrencyData
                   id={props.match.params.id}
                   total={props.location.state.total}
                   volume={props.location.state.volume}
@@ -77,7 +73,7 @@ class App extends Component {
                   logo={props.location.state.logo}
                   price={props.location.state.price}
                   rank={props.location.state.rank}
-                  changeCurrency={this.changeCurrency}
+                  currency={this.state.currency}
 
                 />
               )}}

@@ -66,7 +66,7 @@ const CryptoRow = (props) => {
 			<div className='row'>
 				<div className='row__item--one'>
 				{props.rank}
-				<img src={image_path} />
+				<img src={image_path} alt={'logo'}/>
 				{props.name}
 				</div>
 				<div className='row__item--two'>
