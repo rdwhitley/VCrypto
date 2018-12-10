@@ -1,5 +1,5 @@
 # Vcrypto #
-Vcrypto is an application that displays the current top 10 cryptocurrencies every 60 seconds and displays their information.
+Vcrypto is an application made using React.js that displays the current top 10 cryptocurrencies every 60 seconds and displays their information.
 
 ## Vcrypto Layout ##
 ![flow chart](https://res.cloudinary.com/dedmuznkk/image/upload/v1544425453/Vcrypto%20Flow.png)
