@@ -1,11 +1,11 @@
 import React from 'react';
 import './CryptoRow.css'
-import '../Table/Table.css'
 import {Link} from 'react-router-dom'
 
 //Variable to hold the image path Index defaulted to 0 
 let imagePathIndex = 0;
 
+/*Function to find index of given name in the Logos array */
 const findImageInPath = (name,logosArray) => {
 
 	//1. Make a copy of image array with the names clipped
@@ -24,6 +24,7 @@ const findImageInPath = (name,logosArray) => {
 	
 }
 
+// Function to get an image from the logos array
 const findCurrencyLogo = (name,logos) => {
 	//1.Replace all - in name with _ and make it lowercase for storage reasons so we dont break stuff and cry
 	let newName = name.replace('-','_')
@@ -36,8 +37,17 @@ const findCurrencyLogo = (name,logos) => {
 
 }
 const CryptoRow = (props) => {
+	let goodStatus = {
+		color : 'green'
+	}
+
+	let badStatus = {
+		color : 'red'
+	}
+
 	let image_path = findCurrencyLogo(props.name,props.logos)
 	const price = parseFloat(props.price).toFixed(3)
+	
 	return (
 		<Link to={{ 
 			pathname: `/currency/${props.name}`, 
@@ -51,7 +61,7 @@ const CryptoRow = (props) => {
 				price: price
 				}
 			}} 
-			className='row'>
+			className='row border-btm'>
 
 			<div className='row'>
 				<div className='row__item--one'>
@@ -60,16 +70,21 @@ const CryptoRow = (props) => {
 				{props.name}
 				</div>
 				<div className='row__item--two'>
-				${price}
+					<span className='light'>$</span> {Number(price).format()}
 				</div>
 				<div className='row__item--three'> 
-				${parseInt(props.market)}
+					<span className='light'>$</span> {parseInt(props.market).format()}
 				</div>
-				<div className='row__item--four'>
-				{props.change}
+				<div 
+				className='row__item--four'
+				style={parseInt(props.change) > 0 ? goodStatus : badStatus}
+				>
+				{props.change}%
+				{parseInt(props.change) > 0 ? <i className='fa fa-arrow-up'></i> : <i className='fa fa-arrow-down'> </i>}
 				</div>
 			</div>
 		</Link>
+		
 	)
 }
 

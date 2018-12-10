@@ -1,56 +1,55 @@
 import React from 'react'
 import './CurrencyData.css'
-import { connect } from 'react-redux'
-import { changeCurrency } from '../../Actions/currencyAction'
+import {Link} from 'react-router-dom'
 
 const currencyData = (props) => {
-	console.log(props)
 	return (
-		<div>
+		<div class='light'>
 			<div class='currency__info--header'>
-				<h2><a href='/'>Home</a></h2>
+				<Link to='/'><i className='fa fa-arrow-circle-left fa-2x'></i></Link>
 				<img src ={props.logo} />
-				<div class='currency__info--header-logo'>
-				<h2>{props.id}</h2>
-				<h2>{props.symbol}</h2>
+				<div class='mg-left-right'>
+					<h2 class='light-black'>{props.id}</h2>
+					<h2 class=''>{props.symbol}</h2>
 				</div>
-				<h2>${props.price}</h2>
-				{/*Drop Down Menu*/}
-			 		<select id='currency_dropdown'>
-		  				<option>USD</option>
-		  				<option>GBP</option>
-		  				<option>EUR</option>
-		 				<option>JPY</option>
-		 				<option>KRW</option>
-					</select> 
+				<h2 class='black'>${Number(props.price).format()}</h2> 
 			</div>
 
 			<div class='currency__info--body'>
 				<div class='three-column-row'>
 					<div class='grid-item--1'>
-						<h2>Rank {props.rank}</h2>
+						<h2>Rank  <span id='rank-circle'> {props.rank} </span> </h2>
 					</div>
 						
 					<div class='grid-item--2'>
 						<div class='market-cap'>
 						<h2>Market Cap</h2>
-						<h3>${props.market}</h3>
+						<h3 class='white'>
+							<span>$ </span> 
+							{Number(props.market).format()}
+						</h3>
 						</div>
 						<div class='circulating-supply'>
 						<h2>Circulating Supply</h2>
-						<h3>16,323,211 {props.symbol}</h3>
+						<h3 class='white'>16,323,211 <span class='green'>{props.symbol}</span></h3>
 						</div>
 					</div>
 						
 					<div class='grid-item--3'>
 						<div class='volume'>
 							<h2>24th Volume</h2>
-							<h3>${props.volume}</h3>
+							<h3 class='white'>
+								<span>$ </span> 
+								{parseInt(props.volume).format()}
+							</h3>
 						</div>
 
 						<div class='total_supply'>
 							<h2>Total Supply</h2>
-							<h3>{props.total} {props.symbol}</h3>
+							<h3>
+								<span class='white'>{Number(props.total).format()}</span> 
+								<span class='green'> {props.symbol}</span>
+							</h3>
 						</div>
 					</div>
 
@@ -60,4 +59,4 @@ const currencyData = (props) => {
 	)
 }
 
-export default connect(null, {changeCurrency})(currencyData)
+export default currencyData
