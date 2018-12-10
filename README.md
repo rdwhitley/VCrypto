@@ -19,3 +19,7 @@ This setup assumes you already have Node.js installed if not please download it
 ## FAQ ##
 The App has a few shortcomings that I can see and wish to update in the early stages. Redux would be a better option to manage state as the app grows. Mobile Responsiveness should be given thought also. Also with the introduction of Redux I was thinking of having all diffrent currencies fetched at once then put in the store to avoid unneccsary AJAX calls and load times.
 
+##To-Do ##
+* Refactor code for optimal maintanence
+* Implement Redux
+* Implement styled components
