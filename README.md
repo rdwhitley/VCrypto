@@ -5,7 +5,7 @@ Vcrypto is an application that displays the current top 10 cryptocurrencies ever
 ![flow chart](https://res.cloudinary.com/dedmuznkk/image/upload/v1544425453/Vcrypto%20Flow.png)
 
 ## Demo ##
-
+![demo](https://res.cloudinary.com/dedmuznkk/image/upload/v1544427895/vcrypto-gif.gif)
 
 ## Setup ##
 This setup assumes you already have Node.js installed if not please download it
